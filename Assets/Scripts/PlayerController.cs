@@ -18,6 +18,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.instance.isGameover)
+        {
+            return;
+        }
+
         translation = Input.GetAxis("Vertical") * moveSpeed;
         rotation = Input.GetAxis("Horizontal") * rotationSpeed;
 
@@ -36,6 +41,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (GameManager.instance.isGameover)
+        {
+            return;
+        }
+
         if (collision.collider.tag == "Obstacle")
         {
             ani.SetTrigger("damage");
