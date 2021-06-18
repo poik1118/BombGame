@@ -25,6 +25,7 @@ public class Enermy : MonoBehaviour
             Vector3 trans = target.position - transform.position;
             rig.AddForce(trans * speed * Time.deltaTime);
         }
+
     }
 
     private void OnTriggerEnter(Collider other)
